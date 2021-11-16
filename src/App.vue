@@ -1,32 +1,21 @@
 <template>
-  <div id="app">
-    <h1 class="f4 bold center mw5">Add A Person</h1>
-    <Form />
-    <h1 class="f4 bold center mw5">Names</h1>
-    <Names />
+  <div id="app" class="center avenir tc">
+
+    <nav class="pa3 pa4-ns">
+      <router-link class="link dim black b f6 f5-ns dib mr3" to="/" title="Home">graphql-client</router-link>
+      <router-link class="link dim gray    f6 f5-ns dib mr3" to="/foo" title="Foo">Foo</router-link>
+      <router-link class="link dim gray    f6 f5-ns dib mr3" to="/bar" title="Bar">Bar</router-link>
+    </nav>
+
+    <div>
+      <router-view />
+    </div>
+
   </div>
 </template>
 
 <script>
-import Form from "./components/Form";
-import Names from "./components/Names";
-
 export default {
-  name: "App",
-  components: {
-    Form,
-    Names
-  }
+  name: "app"
 };
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

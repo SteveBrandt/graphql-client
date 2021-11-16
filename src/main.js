@@ -1,7 +1,9 @@
 import Vue from "vue";
 import App from "./App";
+import {router} from "./router";
 import ApolloClient from "apollo-boost";
 import VueApollo from "vue-apollo";
+import VueRouter from 'vue-router'
 
 Vue.config.productionTip = false;
 
@@ -10,14 +12,19 @@ const client = new ApolloClient({
 });
 
 const apolloProvider = new VueApollo({
-  defaultClient: client
+  defaultClient: client,
+  defaultOptions: {
+    $loadingKey: 'loading'
+  }
 });
 
 Vue.use(VueApollo);
+Vue.use(VueRouter)
 
 new Vue({
-  el: "#app",
-  components: { App },
+  el: "#main",
   provide: apolloProvider.provide(),
-  template: "<App/>"
+  router,
+  render: h => h(App)
 });
+
